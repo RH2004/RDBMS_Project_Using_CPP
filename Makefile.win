@@ -1,0 +1,49 @@
+# Project: RDBSProject
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o column.o row.o table.o database.o compiler.o lexer.o parser.o
+LINKOBJ  = main.o column.o row.o table.o database.o compiler.o lexer.o parser.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -pg
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = RDBSProject.exe
+CXXFLAGS = $(CXXINCS) -pg
+CFLAGS   = $(INCS) -pg
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+column.o: column.cpp
+	$(CPP) -c column.cpp -o column.o $(CXXFLAGS)
+
+row.o: row.cpp
+	$(CPP) -c row.cpp -o row.o $(CXXFLAGS)
+
+table.o: table.cpp
+	$(CPP) -c table.cpp -o table.o $(CXXFLAGS)
+
+database.o: database.cpp
+	$(CPP) -c database.cpp -o database.o $(CXXFLAGS)
+
+compiler.o: compiler.cpp
+	$(CPP) -c compiler.cpp -o compiler.o $(CXXFLAGS)
+
+lexer.o: lexer.cpp
+	$(CPP) -c lexer.cpp -o lexer.o $(CXXFLAGS)
+
+parser.o: parser.cpp
+	$(CPP) -c parser.cpp -o parser.o $(CXXFLAGS)
