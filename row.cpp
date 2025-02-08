@@ -6,9 +6,11 @@ Row::Row(const vector<string> & values){
 	this->values = values;
 }
 
-Row & Row::addValue(string value){
-	this->values.push_back(value);
+Row& Row::addValue(string value) {
+    this->values.push_back(value);
+    return *this; // Correctly return a reference to the object
 }
+
 
 const vector<string> & Row::getValues() const {
     return values;

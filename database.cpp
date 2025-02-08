@@ -154,9 +154,6 @@ void Database::loadFromBinaryFile(const std::string& filename) {
 
 
 
-
-
-
 Table* Database::findTable(const string& tableName) {
     for(int i = 0; i < tables.size(); i++) {
         if (tables[i].getName() == tableName) {
